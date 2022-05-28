@@ -9,9 +9,9 @@
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
-<body>
+<body> 
 
-  <header>
+  <header> 
     <h1 class="page-title">Taskinator</h1>
     <p>Click the button below to add a new task!</p>
     <form id="task-form">
@@ -20,11 +20,10 @@
       </div>
       <div class="form-group">
         <select name="task-type" class="select-dropdown">
-          <option value="" selected disabled>Pick a task type</option>
-          <option value="Home">Home</option>
-          <option value="Finances">Finances</option>
-          <option value="Self-Care">Self Care</option>
-          <option value="Friends-and-Family">Friends and Family</option>
+          <option value="" disabled selected>Pick a task type</option>
+          <option value="Print">Print</option>
+          <option value="Web">Web</option>
+          <option value="Mobile">Mobile</option>
         </select>
       </div>
       <div class="form-group">
@@ -34,9 +33,20 @@
   </header>
 
   <main class="page-content">
+    <!-- Tasks to Do -->
     <section class="task-list-wrapper">
       <h2 class="list-title">Tasks To Do</h2>
       <ul class="task-list" id="tasks-to-do"></ul>
+    </section>
+    <!-- Tasks in Progress -->
+    <section class="task-list-wrapper">
+      <h2 class="list-title">Tasks in Progress</h2>
+      <ul class="task-list" id="tasks-in-progress"></ul>
+    </section>
+    <!-- Tasks Completed -->
+    <section class="task-list-wrapper">
+      <h2 class="list-title">Tasks Completed</h2>
+      <ul class="task-list" id="tasks-completed"></ul>
     </section>
   </main>
 
