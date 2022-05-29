@@ -137,7 +137,6 @@ var taskButtonHandler = function (event) {
     var taskId = targetEl.getAttribute("data-task-id");
     editTask(taskId);
   } else if (targetEl.matches(".delete-btn")) {
-    console.log("delete", targetEl);
     var taskId = targetEl.getAttribute("data-task-id");
     deleteTask(taskId);
   }
@@ -215,6 +214,22 @@ var saveTasks = function () {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
+var loadTasks = function () {
+  // get task items from localStorage
+  var savedTasks = localStorage.getItem("tasks");
+  
+  if (!savedTasks) {
+    return false;
+  }
+
+  savedTasks = JSON.parse(savedTasks);
+
+  for (var i = 0; i < savedTasks.length; i++) {
+    // pass each task object into the 'createTaskEl()' function
+    createTaskEl(savedTasks[i]);
+  }
+};
+
 // Create a new task
 formEl.addEventListener("submit", taskFormHandler);
 
@@ -223,3 +238,5 @@ pageContentEl.addEventListener("click", taskButtonHandler);
 
 // for changing the status
 pageContentEl.addEventListener("change", taskStatusChangeHandler);
+
+loadTasks();
